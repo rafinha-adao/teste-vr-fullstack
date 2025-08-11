@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - rabbitmq
+    networks:
+      - project-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - project-network
+
+networks:
+  project-network:
+    driver: bridge
