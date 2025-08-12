@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Mensagem</mat-label>
+        <input matInput placeholder="Digite sua mensagem" [(ngModel)]="conteudoMensagem" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" style="margin-top: 12px;" (click)="enviarNotificacao()">
+        Enviar notificação
+    </button>
+
+    <mat-list style="margin-top: 30px; text-align: left;">
+        <mat-list-item *ngFor="let notif of notificacoes">
+            <div style="flex: 1;">
+                <div><strong>ID:</strong> {{ notif.mensagemId }}</div>
+                <div><strong>Mensagem:</strong> {{ notif.conteudoMensagem }}</div>
+            </div>
+            <mat-chip [color]="getStatusColor(notif.status)" selected style="margin-left: 12px; height: 30px; align-self: center;">
+                {{ notif.status }}
+            </mat-chip>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
