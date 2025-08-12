@@ -1,6 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
-import { NotificacaoComponent } from './app/notificacao/notificacao';
+import { App } from './app/app';
 
-bootstrapApplication(NotificacaoComponent, appConfig)
-  .catch(err => console.error(err));
+bootstrapApplication(App, appConfig)
+  .catch((err) => console.error(err));

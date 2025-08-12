@@ -1,0 +1,35 @@
+<main style="height: 100%; display: flex; justify-content: center; align-items: center;">
+    <div style="max-width: 768px; width: 100%;">
+        <h1 style="margin-bottom: 24px; font-size: 24px;">Sistema de Notificações Assíncronas Simplificado</h1>
+        <form (ngSubmit)="enviarNotificacao()" #form="ngForm">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Mensagem</mat-label>
+                <input matInput placeholder="Digite sua mensagem" [(ngModel)]="conteudoMensagem" name="conteudoMensagem" />
+            </mat-form-field>
+            <div style="display: flex; justify-content: flex-end;">
+                <button type="submit" mat-flat-button color="primary">
+                    Enviar notificação
+                </button>
+            </div>
+        </form>
+        <mat-list style="margin-top: 24px;">
+            <mat-list-item *ngFor="let notificacao of notificacoes">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span matListItemTitle>
+                            <strong>Mensagem:</strong> {{ notificacao.conteudoMensagem }}
+                        </span>
+                        <span matListItemLine>
+                            <strong>ID:</strong> {{ notificacao.mensagemId }}
+                        </span>
+                    </div>
+                    <span matListItemLine>
+                        <mat-chip>
+                            {{ notificacao.status }}
+                        </mat-chip>
+                    </span>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</main>
